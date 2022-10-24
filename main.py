@@ -1,15 +1,16 @@
+import random
 
-def consonant(strval):
-   ##################################################
-   # make your code
-   ##################################################
+##################################################
+# Make your lambda function here
+# greater =
+# filter50 =
+##################################################
 
 
-strval = 'Python Programming'
-mygen = consonant(strval)
+print(greater(10, 20))
+print(greater(20, 10))
+print(greater(100, 20))
 
-rlst = list(mygen)
-print(len(rlst))
-for v in rlst:
-    print(v, end=' ')
-print()
+numbers = [random.randint(0, 100) for i in range(10)]
+print('original list', numbers)
+print('filter 50', filter50(numbers))

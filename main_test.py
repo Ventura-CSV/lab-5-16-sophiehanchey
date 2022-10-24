@@ -2,38 +2,25 @@ import random
 import main
 
 
-def test_main():
+def test_greater():
 
-    strval = 'Python Programming'
-    mygen = main.consonant(strval)
-    resultlst = list(mygen)
-    print('Your result: ', end=' ')
-    for v in resultlst:
-        print(v, end=' ')
-    print()
-
-    assert len(resultlst) == 14, "Wrong number of elements"
-    assert resultlst[0] == 'P', "Invalid value "
-    assert resultlst[1] == 'y', "Invalid value "
-    assert resultlst[2] == 't', "Invalid value "
-    assert resultlst[3] == 'h', "Invalid value "
-    assert resultlst[4] == 'n', "Invalid value "
-    assert resultlst[5] == ' ', "Invalid value "
+    assert main.greater(10, 20) == 20, "Invalid greater value"
+    assert main.greater(20, 10) == 20, "Invalid greater value"
+    assert main.greater(100, 20) == 100, "Invalid greater value"
 
 
-def test_fibo2():
+def test_filter50():
 
-    strval = 'PAYETIHONU'
-    mygen = main.consonant(strval)
-    resultlst = list(mygen)
-    print('Your result: ', end=' ')
-    for v in resultlst:
-        print(v, end=' ')
-    print()
+    numbers = [random.randint(0, 100) for i in range(10)]
+    print('original list', numbers)
+    tlst = [v for v in numbers if v > 50]
+    tnum = len(tlst)
+    rlst = main.filter50(numbers)
+    print('filter 50', rlst)
 
-    assert len(resultlst) == 5, "Wrong number of elements"
-    assert resultlst[0] == 'P', "Invalid value "
-    assert resultlst[1] == 'Y', "Invalid value "
-    assert resultlst[2] == 'T', "Invalid value "
-    assert resultlst[3] == 'H', "Invalid value "
-    assert resultlst[4] == 'N', "Invalid value "
+    assert len(rlst) == len(tlst), "Wrong number of elements"
+    flag = 0
+    for i in range(len(rlst)):
+        if rlst[i] == tlst[i]:
+            flag = 1
+    assert flag == 1, "Invalid elements for > 50"

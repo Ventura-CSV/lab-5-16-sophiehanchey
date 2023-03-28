@@ -24,3 +24,14 @@ def test_filter50():
         if rlst[i] == tlst[i]:
             flag = 1
     assert flag == 1, "Invalid elements for > 50"
+
+
+def test_yield():
+    with open('main.py') as f:
+        flag = False
+        for line in f:
+            if 'lambda' in line:
+                flag = True
+                break
+
+    assert flag == True

@@ -19,11 +19,17 @@ def test_filter50():
     print('filter 50', rlst)
 
     assert len(rlst) == len(tlst), "Wrong number of elements"
-    flag = 0
-    for i in range(len(rlst)):
-        if rlst[i] == tlst[i]:
-            flag = 1
-    assert flag == 1, "Invalid elements for > 50"
+    flag = 1
+    for v in tlst:
+        if v not in rlst:
+            flag = 0
+    assert flag == 1, 'The list values are wrong'
+
+    # flag = 0
+    # for i in range(len(rlst)):
+    #     if rlst[i] == tlst[i]:
+    #         flag = 1
+    # assert flag == 1, "Invalid elements for > 50"
 
 
 def test_yield():
